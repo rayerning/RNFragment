@@ -1,0 +1,10 @@
+# RNFragment
+提供了fragment去作为react模块的载体。
+
+> React native官方提供了ReactActivity作为React模块的一个载体，用来展示界面。但是在混合开发时，有时候需要将rn的一些页面插入原生的页面中，由此引发了思考。
+
+在充分了解了React Native的原生端加载过程之后，可以看出，Rn将原生的Activity的生命周期通过Delegate，代理到了rn。而React所有的页面在原生端的ReactRootView上来加载，并且在ReactActivity的实现中，ReactRootView是作为contentView设置给ReactActivity的，那么在了解了这些基本情况后，我们可以大胆猜测，理论上讲也可以将ReactRootView作为Fragment中的view。，
+1. 原生插入rn的组件，在模块化开发中还是比较常见的，那么何种方式可以插入原生页面？
+   activity中常见的子页面提供方式有View和Fragment。下面我们从Fragment入手。
+   
+> 新项目中的依赖库受用了androidx，google已经停止了对support包的更新，以后会维护androidx，来兼容support包，不过对于旧的项目，可以直接或者间接的依赖了support不同版本的包，不能一下子切换至androidx。所以需要自己引入。
